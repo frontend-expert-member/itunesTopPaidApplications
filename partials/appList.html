@@ -1,0 +1,29 @@
+<div class="col-sm-6">
+   <div class="item">
+	   <div class="row">
+		   <div class="col-xs-3 col-lg-2">
+			   <img src="{{im.appImage}}" alt="{{im.appName}}" class="img-thumbnail" /> 
+		   </div>
+		   <div class="col-xs-9 col-lg-10">
+			   <h4>{{im.appName}}</h4>
+			   <h5>{{im.appCategory}}</h5>
+			   <p>{{im.appPrice}}</p>
+		   </div>
+	   </div>
+   </div>
+</div>
+
+<div class="col-sm-6" ng-if="fData[$index+1]!=null">
+   <div class="item">
+	   <div class="row">
+		   <div class="col-xs-3 col-lg-2">
+			   <img src="{{fData[$index+1].appImage}}" alt="{{fData[$index+1].appName}}" class="img-thumbnail" /> 
+		   </div>
+		   <div class="col-xs-9 col-lg-10">
+			   <h4>{{fData[$index+1].appName}}</h4>
+			   <h5>{{fData[$index+1].appCategory}}</h5>
+			   <p>{{fData[$index+1].appPrice}}</p>
+		   </div>
+	   </div>
+   </div>
+</div>
