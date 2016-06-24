@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>iOS Apps List :: Angular JS</title>
+    
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/canvasjs.min.js"></script>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-app="iListApp">
+   
+    <header>
+       <div class="container navbar-fixed-top">
+           <h1>iTunes Top Paid Applications</h1>
+       </div>
+    </header>
+   
+    <main>
+		<div class="container" ng-controller="iListController">
+		    <div class="container fixed-top">
+				<div id="chartContainer"></div>
+
+				<form action="#" method="get" class="row filterForm">
+					<div class="col-sm-4">
+						<input type="text" ng-model="byAppName" name="q" class="form-control" placeholder="Search by App Name" />     
+					</div>
+					<div class="col-sm-4 col-sm-offset-4">
+						<select name="s" ng-model="sortAppsBy" class="form-control">
+							<option value="">Sort by</option>
+							<option value="appDate">Sort by date</option>
+							<option value="appCost">Sort by price</option>
+							<option value="appName">Sort by name</option>
+						</select> 
+					</div>
+				</form>
+		    </div>
+            
+            <div class="appList">
+				<div class="row"
+                     ng-include="'partials/appList.html'"
+                     ng-repeat="im in (fData = (iData | filter:{appName:byAppName} | orderBy:sortAppsBy))"
+                     ng-if="$even">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    
+    <script src="js/lib/jquery-2.2.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app/app.js"></script>
+    <script src="js/app/controller.js"></script>
+</body>
+</html>
